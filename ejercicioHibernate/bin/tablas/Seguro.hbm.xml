@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 08-dic-2019 21:14:43 by Hibernate Tools 5.1.0.Alpha1 -->
+<hibernate-mapping>
+    <class name="tablas.Seguro" table="seguro" catalog="seguros" optimistic-lock="version">
+        <id name="idSeguro" type="java.lang.Integer">
+            <column name="idSeguro" />
+            <generator class="identity" />
+        </id>
+        <property name="nif" type="string">
+            <column name="nif" not-null="true" unique="true" />
+        </property>
+        <property name="nombre" type="string">
+            <column name="nombre" />
+        </property>
+        <property name="ape1" type="string">
+            <column name="ape1" />
+        </property>
+        <property name="ape2" type="string">
+            <column name="ape2" />
+        </property>
+        <property name="edad" type="java.lang.Integer">
+            <column name="edad" />
+        </property>
+        <property name="sexo" type="java.lang.Integer">
+            <column name="sexo" />
+        </property>
+        <property name="casado" type="java.lang.Character">
+            <column name="casado" length="1" />
+        </property>
+        <property name="numHijos" type="java.lang.Integer">
+            <column name="numHijos" />
+        </property>
+        <property name="fechaCreacion" type="timestamp">
+            <column name="fechaCreacion" length="19" />
+        </property>
+        <property name="tipoSeguro" type="string">
+            <column name="tipoSeguro" />
+        </property>
+    </class>
+</hibernate-mapping>
