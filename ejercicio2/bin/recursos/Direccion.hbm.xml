@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-dic-2019 22:46:19 by Hibernate Tools 5.1.0.Alpha1 -->
+<hibernate-mapping>
+    <class name="recursos.Direccion" table="direccion" catalog="profesor" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="Id" />
+            <generator class="identity" />
+        </id>
+        <property name="calle" type="string">
+            <column name="calle" />
+        </property>
+        <property name="numero" type="java.lang.Integer">
+            <column name="numero" />
+        </property>
+        <property name="poblacion" type="string">
+            <column name="poblacion" />
+        </property>
+        <property name="provincia" type="string">
+            <column name="provincia" />
+        </property>
+        <set name="profesors" table="profesor" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="direccion_id" not-null="true" />
+            </key>
+            <one-to-many class="recursos.Profesor" />
+        </set>
+    </class>
+</hibernate-mapping>

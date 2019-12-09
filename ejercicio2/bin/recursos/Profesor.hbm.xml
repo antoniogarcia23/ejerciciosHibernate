@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-dic-2019 22:46:19 by Hibernate Tools 5.1.0.Alpha1 -->
+<hibernate-mapping>
+    <class name="recursos.Profesor" table="profesor" catalog="profesor" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="Id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="direccion" class="recursos.Direccion" fetch="select">
+            <column name="direccion_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="modulo" class="recursos.Modulo" fetch="select">
+            <column name="modulo_id" not-null="true" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="nombre" />
+        </property>
+        <property name="ape1" type="string">
+            <column name="ape1" />
+        </property>
+        <property name="ape2" type="string">
+            <column name="ape2" />
+        </property>
+        <set name="correos" table="correo" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="profesor_id" not-null="true" />
+            </key>
+            <one-to-many class="recursos.Correo" />
+        </set>
+    </class>
+</hibernate-mapping>
